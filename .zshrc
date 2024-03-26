@@ -1,5 +1,7 @@
+# export LANG=en_US.UTF-8
+
 # VIM <3
-export EDITOR='vim'
+export EDITOR='nvim'
 alias vi='nvim'
 alias vim='nvim'
 
@@ -14,15 +16,29 @@ alias gbr='git branch'
 alias gclean="git remote prune origin && git branch -vv | grep ': gone]' | awk '{print \$1; }' | grep -v '\*' | xargs git branch -D"
 alias gco="git checkout"
 
-# Antidote configuration
-source $(brew --prefix)/opt/antidote/share/antidote/antidote.zsh
-antidote load # loads ~/.zsh_plugins.txt
+# OhMyZsh configuration
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="" # I use starship
+COMPLETION_WAITING_DOTS="true"
+plugins=(
+  asdf
+  brew
+  docker
+  docker-compose
+  extract
+  golang
+  gradle
+  helm
+  kubectl
+  minikube
+  yarn
+)
+source $ZSH/oh-my-zsh.sh
+# zsh autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Starship
 eval "$(starship init zsh)"
-
-# Pokemonsay
-pokemonsay
 
 # Bat
 alias cat=bat
@@ -33,6 +49,14 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'" # manpage use bat
 alias ping=prettyping --nolegend
 
 # ASDF
-echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ${ZDOTDIR:-~}/.zshrc
+. $(brew --prefix asdf)/libexec/asdf.sh
 export ASDF_GOLANG_MOD_VERSION_ENABLED=true
 
+# Atuin
+eval "$(atuin init zsh)"
+
+# Load secrets
+eval ~/.zsh_secrets
+
+# Very important, gotta catch them all
+fortune | pokemonsay
