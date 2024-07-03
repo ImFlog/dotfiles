@@ -32,6 +32,7 @@ plugins=(
   "nvim"                     # neovim
   "watch"                    # watch command
   "zsh-autosuggestions"      # autosuggestions based on previous commands
+  "p7zip"
 )
 for plugin in $plugins; do 
   brew install $plugin

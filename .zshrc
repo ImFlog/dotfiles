@@ -56,7 +56,7 @@ export ASDF_GOLANG_MOD_VERSION_ENABLED=true
 eval "$(atuin init zsh)"
 
 # Load secrets
-eval ~/.zsh_secrets
+source ~/.zsh_secrets
 
 # Very important, gotta catch them all
 fortune | pokemonsay
