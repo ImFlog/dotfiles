@@ -13,7 +13,6 @@ fi
 # Install brew taps
 taps=(
   possatti/possatti   # for pokemonsay
-  homebrew/cask-fonts # for fira code font
 )
 for tap in $taps; do
   brew tap $tap
@@ -32,6 +31,10 @@ plugins=(
   "nvim"                     # neovim
   "watch"                    # watch command
   "zsh-autosuggestions"      # autosuggestions based on previous commands
+  "p7zip"                    # extract from CLI
+  "k9s" 		     # kubernetes resource management
+  "ffmpeg"                   # audio / video management
+  "ollama"                   # local LLM
 )
 for plugin in $plugins; do 
   brew install $plugin
@@ -54,3 +57,11 @@ cp starship.toml ~/.config/starship.toml
 
 echo 'Copying atuin config'
 cp atuin.config.toml ~/.config/atuin/config.toml
+
+echo 'Copying asdf config'
+cp .asdfrc ~/.asdfrc
+
+echo 'Starting ollama service'
+brew services start ollama
+
+sudo ./sudo_install.sh

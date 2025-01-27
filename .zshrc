@@ -51,9 +51,13 @@ alias ping=prettyping --nolegend
 # ASDF
 . $(brew --prefix asdf)/libexec/asdf.sh
 export ASDF_GOLANG_MOD_VERSION_ENABLED=true
+. ~/.asdf/plugins/java/set-java-home.zsh
 
 # Atuin
 eval "$(atuin init zsh)"
+
+# additional paths
+export PATH="/Users/admin/.local/bin:$PATH"
 
 # Load secrets
 eval ~/.zsh_secrets
