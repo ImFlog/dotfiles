@@ -60,7 +60,7 @@ eval "$(atuin init zsh)"
 export PATH="/Users/admin/.local/bin:$PATH"
 
 # Load secrets
-eval ~/.zsh_secrets
+source ~/.zsh_secrets
 
 # Very important, gotta catch them all
 fortune | pokemonsay
