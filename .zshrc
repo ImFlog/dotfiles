@@ -5,6 +5,10 @@ export EDITOR='nvim'
 alias vi='nvim'
 alias vim='nvim'
 
+# Podman
+alias docker='podman'
+# export DOCKER_HOST=unix://<your_podman_socket_location> # CHANGE THIS BASED ON THE SOCKET CREATED
+
 # Git related
 alias gst='git status'
 alias gup='git fetch && git pull'

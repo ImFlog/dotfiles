@@ -35,6 +35,7 @@ plugins=(
   "k9s" 		     # kubernetes resource management
   "ffmpeg"                   # audio / video management
   "ollama"                   # local LLM
+  "podman-desktop"           # Podman for container run
 )
 for plugin in $plugins; do 
   brew install $plugin
