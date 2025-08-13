@@ -45,7 +45,7 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 eval "$(starship init zsh)"
 
 # Bat
-alias cat=bat
+# alias cat=bat # Messes with AI coding tools in certain cases :(
 alias rcat=cat
 export MANPAGER="sh -c 'col -bx | bat -l man -p'" # manpage use bat
 
@@ -55,6 +55,7 @@ alias ping=prettyping --nolegend
 # ASDF
 . $(brew --prefix asdf)/libexec/asdf.sh
 export ASDF_GOLANG_MOD_VERSION_ENABLED=true
+export ASDF_NODEJS_LEGACY_FILE_DYNAMIC_STRATEGY=latest_available
 . ~/.asdf/plugins/java/set-java-home.zsh
 
 # Atuin
@@ -67,4 +68,4 @@ export PATH="/Users/admin/.local/bin:$PATH"
 source ~/.zsh_secrets
 
 # Very important, gotta catch them all
-fortune | pokemonsay
+echo 'Go !' | pokemonsay

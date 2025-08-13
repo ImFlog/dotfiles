@@ -53,6 +53,11 @@ fi
 echo 'Copying .zshrc file'
 cp .zshrc ~/.zshrc
 
+echo 'Copying global gitignore'
+cp .gitignore ~/.gitignore
+# Activate the gitignore
+git config --global core.excludesfile ~/.gitignore
+
 echo 'Copying starship config'
 cp starship.toml ~/.config/starship.toml
 
