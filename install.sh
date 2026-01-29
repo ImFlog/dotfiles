@@ -10,43 +10,8 @@ else
     brew update
 fi
 
-# Install brew taps
-taps=(
-  possatti/possatti   # for pokemonsay
-)
-for tap in $taps; do
-  brew tap $tap
-done
-
-# Install brew plugins
-plugins=(
-  "font-fira-code-nerd-font" # custom font with ligatures
-  "starship"                 # starship for a cool shell prompt
-  "bat"                      # improved cat
-  "prettyping"               # improved ping
-  "asdf"                     # programming language version manager
-  "atuin"                    # ctrl-r with superpowers
-  "pokemonsay"               # pokemon on startup
-  "watch"                    # watch command
-  "zsh-autosuggestions"      # autosuggestions based on previous commands
-  "p7zip"                    # extract from CLI
-  "k9s" 		     # kubernetes resource management
-  "ffmpeg"                   # audio / video management
-  "git"
-  "uv"
-  "gh"
-  "jq"
-  "yq"
-  "go-task"                  # Taskfile
-  "ghostty"                  # Terminal
-  "ollama"                   # local LLM
-  "docker"                   # container
-  "bruno"                    # API client
-  "keepassxc"                # secret manager
-)
-for plugin in $plugins; do 
-  brew install $plugin
-done
+# Install homebrew dependencies
+brew bundle install
 
 # Install ohmyzsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
