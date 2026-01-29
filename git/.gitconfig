@@ -1,0 +1,24 @@
+[core]
+    editor = vim
+    pager = less -FRX
+    excludesfiles = ~/.dotfiles/.gitignore
+
+[push]
+    autoSetupRemote = true
+
+[includeIf "gitdir:~/code/synapse/"]
+    path = ~/.dotfiles/.gitconfig-pro
+
+[includeIf "gitdir:~/code/perso/"]
+    path = ~/.dotfiles/.gitconfig-perso
+
+[includeIf "gitdir:~/code/synapse-us/"]
+    path = ~/.dotfiles/.gitconfig-perso
+
+[pull]
+        rebase = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

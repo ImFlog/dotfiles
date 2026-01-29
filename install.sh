@@ -26,16 +26,23 @@ plugins=(
   "prettyping"               # improved ping
   "asdf"                     # programming language version manager
   "atuin"                    # ctrl-r with superpowers
-  "fortune"                  # wisdom on startup
   "pokemonsay"               # pokemon on startup
-  "nvim"                     # neovim
   "watch"                    # watch command
   "zsh-autosuggestions"      # autosuggestions based on previous commands
   "p7zip"                    # extract from CLI
   "k9s" 		     # kubernetes resource management
   "ffmpeg"                   # audio / video management
+  "git"
+  "uv"
+  "gh"
+  "jq"
+  "yq"
+  "go-task"                  # Taskfile
+  "ghostty"                  # Terminal
   "ollama"                   # local LLM
-  "podman-desktop"           # Podman for container run
+  "docker"                   # container
+  "bruno"                    # API client
+  "keepassxc"                # secret manager
 )
 for plugin in $plugins; do 
   brew install $plugin
@@ -50,22 +57,26 @@ else
   $ZSH/tools/upgrade.sh
 fi
 
-echo 'Copying .zshrc file'
-cp .zshrc ~/.zshrc
+echo 'Linking .zshrc file'
+ln -s ~/.zshrc .zshrc 
 
-echo 'Copying global gitignore'
-cp .gitignore ~/.gitignore
-# Activate the gitignore
-git config --global core.excludesfile ~/.gitignore
+echo 'Linking vim config'
+ln -s ~/.vimrc .vimrc
 
-echo 'Copying starship config'
-cp starship.toml ~/.config/starship.toml
+# Git
+echo 'Linking git config'
+ln -s ~/.gitconfig git/.gitconfig
 
-echo 'Copying atuin config'
-cp atuin.config.toml ~/.config/atuin/config.toml
+mkdir -p ~/.config
 
-echo 'Copying asdf config'
-cp .asdfrc ~/.asdfrc
+echo 'Linking starship config'
+ln -s ~/.config/starship.toml starship.toml
+
+echo 'Linking atuin config'
+ln -s ~/.config/atuin/config.toml atuin.config.toml
+
+echo 'Linking asdf config'
+ln -s ~/.asdfrc .asdfrc 
 
 echo 'Starting ollama service'
 brew services start ollama
