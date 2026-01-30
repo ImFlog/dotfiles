@@ -1,13 +1,8 @@
-# export LANG=en_US.UTF-8
+setopt CORRECT              # Spell correction for commands
 
 # VIM <3
-export EDITOR='nvim'
-alias vi='nvim'
-alias vim='nvim'
-
-# Podman
-alias docker='podman'
-# export DOCKER_HOST=unix://<your_podman_socket_location> # CHANGE THIS BASED ON THE SOCKET CREATED
+export EDITOR='vim'
+alias vi='vim'
 
 # Git related
 alias gst='git status'
@@ -49,20 +44,26 @@ eval "$(starship init zsh)"
 alias rcat=cat
 export MANPAGER="sh -c 'col -bx | bat -l man -p'" # manpage use bat
 
-# Prettyping
-alias ping=prettyping --nolegend
+# GNU sed (replace macOS default)
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # ASDF
 . $(brew --prefix asdf)/libexec/asdf.sh
 export ASDF_GOLANG_MOD_VERSION_ENABLED=true
 export ASDF_NODEJS_LEGACY_FILE_DYNAMIC_STRATEGY=latest_available
 . ~/.asdf/plugins/java/set-java-home.zsh
+# Go environment (via asdf)
+export GOPATH="$(asdf where golang)/packages"
+export GOROOT="$(asdf where golang)/go"
+export PATH="${PATH}:${GOROOT}/bin:${GOPATH}/bin"
 
 # Atuin
 eval "$(atuin init zsh)"
 
 # additional paths
-export PATH="/Users/admin/.local/bin:$PATH"
+export PATH="$PATH:$HOME/.local/bin"
+# Flutter
+export PATH="$PATH:$HOME/flutter/bin"
 
 # Load secrets
 source ~/.zsh_secrets

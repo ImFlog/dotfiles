@@ -22,28 +22,39 @@ else
   $ZSH/tools/upgrade.sh
 fi
 
+DOTFILES="$HOME/.dotfiles"
+
 echo 'Linking .zshrc file'
-ln -s ~/.zshrc .zshrc 
+ln -sf "$DOTFILES/.zshrc" "$HOME/.zshrc" 
 
 echo 'Linking vim config'
-ln -s ~/.vimrc .vimrc
+ln -sf "$DOTFILES/.vimrc" "$HOME/.vimrc"
 
 # Git
 echo 'Linking git config'
-ln -s ~/.gitconfig git/.gitconfig
+ln -sf "$DOTFILES/git/.gitconfig" "$HOME/.gitconfig"
 
-mkdir -p ~/.config
+mkdir -p ~/.config/atuin
 
 echo 'Linking starship config'
-ln -s ~/.config/starship.toml starship.toml
+ln -sf "$DOTFILES/starship.toml" "$HOME/.config/starship.toml"
 
 echo 'Linking atuin config'
-ln -s ~/.config/atuin/config.toml atuin.config.toml
+ln -sf "$DOTFILES/atuin.config.toml" "$HOME/.config/atuin/config.toml"
 
-echo 'Linking asdf config'
-ln -s ~/.asdfrc .asdfrc 
+echo 'Linking karabiner config'
+ln -sf "$DOTFILES/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
 
 echo 'Starting ollama service'
 brew services start ollama
+
+echo 'Linking asdf config'
+ln -sf "$DOTFILES/.asdfrc" "$HOME/.asdfrc"
+echo 'Installing asdf base plugin'
+asdf plugin add nodejs
+asdf plugin add java
+asdf plugin add golang
+ln -sf "$DOTFILES/.tool-versions" "$HOME/.tool-versions"
+asdf install
 
 sudo ./sudo_install.sh

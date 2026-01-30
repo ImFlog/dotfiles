@@ -6,10 +6,15 @@ My dotfiles to manage my configuration.
 
 The install scripts are made for MacOS.
 
-Run `./install.sh` to:
+```bash
+git clone git@github.com:ImFlog/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
+./install.sh
+```
+
+This will :
 * Install Homebrew
 * Install some brew packages
 * Install OhMyZsh
 * Link dotfiles
 * Fixe some system parameters
-
