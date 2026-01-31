@@ -56,14 +56,13 @@ export ASDF_NODEJS_LEGACY_FILE_DYNAMIC_STRATEGY=latest_available
 export GOPATH="$(asdf where golang)/packages"
 export GOROOT="$(asdf where golang)/go"
 export PATH="${PATH}:${GOROOT}/bin:${GOPATH}/bin"
+export PATH="${PATH}:$(asdf where flutter)/bin"
 
 # Atuin
 eval "$(atuin init zsh)"
 
 # additional paths
 export PATH="$PATH:$HOME/.local/bin"
-# Flutter
-export PATH="$PATH:$HOME/flutter/bin"
 
 # Load secrets
 source ~/.zsh_secrets

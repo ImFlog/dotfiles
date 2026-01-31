@@ -7,10 +7,10 @@
     autoSetupRemote = true
 
 [includeIf "gitdir:~/code/synapse/"]
-    path = ~/.dotfiles/.gitconfig-pro
+    path = ~/.dotfiles/git/.gitconfig-pro
 
 [includeIf "gitdir:~/code/perso/"]
-    path = ~/.dotfiles/.gitconfig-perso
+    path = ~/.dotfiles/git/.gitconfig-perso
 
 [includeIf "gitdir:~/code/synapse-us/"]
     path = ~/.dotfiles/.gitconfig-perso

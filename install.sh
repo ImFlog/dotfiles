@@ -54,6 +54,7 @@ echo 'Installing asdf base plugin'
 asdf plugin add nodejs
 asdf plugin add java
 asdf plugin add golang
+asdf plugin add flutter
 ln -sf "$DOTFILES/.tool-versions" "$HOME/.tool-versions"
 asdf install
 
