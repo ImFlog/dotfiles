@@ -6,6 +6,7 @@ brew "go-task"
 brew "ollama"
 brew "docker"
 brew "wget"
+brew "prek"
 
 # Shell
 brew "starship"
