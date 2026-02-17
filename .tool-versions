@@ -1,4 +1,5 @@
 java adoptopenjdk-21.0.9+10.0.LTS
 nodejs 25.4.0
+nodejs 24.11.1
 golang 1.25.6
 flutter 3.38.9

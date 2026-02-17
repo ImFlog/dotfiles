@@ -44,9 +44,6 @@ eval "$(starship init zsh)"
 alias rcat=cat
 export MANPAGER="sh -c 'col -bx | bat -l man -p'" # manpage use bat
 
-# GNU sed (replace macOS default)
-export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
-
 # ASDF
 . $(brew --prefix asdf)/libexec/asdf.sh
 export ASDF_GOLANG_MOD_VERSION_ENABLED=true

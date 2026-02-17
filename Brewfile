@@ -7,6 +7,7 @@ brew "ollama"
 brew "docker"
 brew "wget"
 brew "prek"
+brew "golangci-lint"
 
 # Shell
 brew "starship"
@@ -16,7 +17,6 @@ brew "atuin"
 brew "watch"
 brew "zsh-autosuggestions"
 brew "p7zip"
-brew "gnu-sed"
 brew "python-yq"
 
 # Ops
