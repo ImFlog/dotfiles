@@ -34,8 +34,11 @@ set softtabstop=0
 set shiftwidth=4
 set expandtab
 
+set mouse=a
+
 "" Map leader to ,
-let mapleader=','
+nnoremap <SPACE> <Nop>
+let mapleader=" "
 
 "" Enable hidden buffers
 set hidden

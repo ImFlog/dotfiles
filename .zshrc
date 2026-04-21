@@ -52,6 +52,7 @@ export ASDF_NODEJS_LEGACY_FILE_DYNAMIC_STRATEGY=latest_available
 # Go environment (via asdf)
 export GOPATH="$(asdf where golang)/packages"
 export GOROOT="$(asdf where golang)/go"
+export GOBIN="$(asdf where golang)/bin"
 export PATH="${PATH}:${GOROOT}/bin:${GOPATH}/bin"
 export PATH="${PATH}:$(asdf where flutter)/bin"
 

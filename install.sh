@@ -58,4 +58,11 @@ asdf plugin add flutter
 ln -sf "$DOTFILES/.tool-versions" "$HOME/.tool-versions"
 asdf install
 
+echo 'Copying Zed config'
+ln -sf "$DOTFILES/zed.settings.json" "$HOME/.config/zed/setings.json"
+
+echo 'Configuring Claude'
+ln -sf "$DOTFILES/claude/settings.json" "$HOME/.claude/setings.json"
+ln -sf "$DOTFILES/claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
+
 sudo ./sudo_install.sh
