@@ -7,6 +7,7 @@ cwd=$(echo "$input" | jq -r '.workspace.current_dir // .cwd')
 model=$(echo "$input" | jq -r '.model.display_name // empty')
 used=$(echo "$input" | jq -r '.rate_limits.five_hour.used_percentage // 0')
 reset=$(echo "$input" | jq -r '.rate_limits.five_hour.resets_at // 0')
+ctx_used=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
 
 # Shorten home directory to ~
 home="$HOME"
@@ -31,7 +32,21 @@ if [ -n "$model" ]; then
   parts+=("$(printf '\033[36m%s\033[0m' "$model")")
 fi
 
-# Context usage
+# Context window usage
+if [ -n "$ctx_used" ]; then
+  ctx_int=$(printf '%.0f' "$ctx_used")
+
+  if [ "$ctx_int" -ge 80 ]; then
+    ctx_color='\033[31m'
+  elif [ "$ctx_int" -ge 50 ]; then
+    ctx_color='\033[33m'
+  else
+    ctx_color='\033[32m'
+  fi
+  parts+=("$(printf "${ctx_color}ctx:%d%%\033[0m" "$ctx_int")")
+fi
+
+# Rate limit usage
 if [ -n "$used" ]; then
   used_int=$(printf '%.0f' "$used")
 

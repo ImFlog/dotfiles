@@ -1,7 +1,7 @@
 [core]
     editor = vim
     pager = less -FRX
-    excludesfiles = ~/.dotfiles/.gitignore
+    excludesfile = ~/.dotfiles/git/.gitignore
 
 [push]
     autoSetupRemote = true
